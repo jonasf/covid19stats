@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: covid19stats-collector
+spec:
+  schedule: "*/30 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: covid19stats-collector
+            image: {{ .Values.Image }}
+            env:
+              - name: INFLUXDB_HOST
+                value: {{ .Values.Influxdbhost }}
+              - name: INFLUXDB_PORT
+                value: "8086"
+          restartPolicy: OnFailure

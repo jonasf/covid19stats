@@ -1,0 +1,8 @@
+apiVersion: v2
+name: covid19stats-collector
+description: A generated Helm Chart for covid19stats-collector from Skippbox Kompose
+version: 0.0.1
+keywords:
+  - covid19stats-collector
+sources:
+home:

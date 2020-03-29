@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  collector:
+    image: "jonasfred/covid19stats:latest"
+    environment:
+      INFLUXDB_HOST: localhost
+      INFLUXDB_PORT: 8086
+    # For debugging locally.
+    #network_mode: "host" 

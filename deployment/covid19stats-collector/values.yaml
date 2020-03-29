@@ -1,0 +1,2 @@
+Image: "jonasfred/covid19stats:latest"
+Influxdbhost:  "influxdb.covid19"

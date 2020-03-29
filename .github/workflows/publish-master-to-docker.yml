@@ -35,5 +35,5 @@ jobs:
         PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKERFILE: "Dockerfile"
         IMAGE_NAME: "jonasfred/covid19stats"
-        TAG_NAME: $(date +%s)
+        TAG_NAME: ${{ github.run_id }}
         LATEST: "true"

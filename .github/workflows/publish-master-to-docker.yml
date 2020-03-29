@@ -26,5 +26,14 @@ jobs:
     #    pip3 install flake8
     #    flake8 src/
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag jonasfred/covid19stats:$(date +%s)
+    - name: Docker Build & Push to Docker Hub
+      uses: opspresso/action-docker@master
+      with:
+        args: --docker
+      env:
+        USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKERFILE: "Dockerfile"
+        IMAGE_NAME: "jonasfred/covid19stats"
+        TAG_NAME: $(date +%s)
+        LATEST: "true"

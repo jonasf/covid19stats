@@ -1,11 +1,12 @@
 from influxdb import InfluxDBClient
+import os
 
 
 class Datasource:
 
     def __init__(self):
         self.database_name = 'covid_stats'
-        self.db_client = InfluxDBClient(host='localhost', port=8086)
+        self.db_client = InfluxDBClient(host=os.environ['INFLUXDB_HOST'], port=os.environ['INFLUXDB_PORT'])
         self.db_client.create_database(self.database_name)
 
     def save(self, stats):
